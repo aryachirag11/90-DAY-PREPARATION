@@ -1,23 +1,27 @@
-class Solution
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main()
 {
-public:
-  void rotate(vector<vector<int>> &matrix)
+  return 0;
+}
+void rotate(vector<vector<int>> &matrix)
+{
+  int n = matrix.size();
+
+  // transpose--
+  for (int i = 0; i < n; i++)
   {
-    int n = matrix.size();
-
-    // transpose--
-    for (int i = 0; i < n; i++)
+    for (int j = 0; j < i; j++)
     {
-      for (int j = 0; j < i; j++)
-      {
-        swap(matrix[i][j], matrix[j][i]);
-      }
-    }
-
-    // reverse each row--
-    for (int i = 0; i < n; i++)
-    {
-      reverse(matrix[i].begin(), matrix[i].end());
+      swap(matrix[i][j], matrix[j][i]);
     }
   }
-};
+
+  // reverse each row--
+  for (int i = 0; i < n; i++)
+  {
+    reverse(matrix[i].begin(), matrix[i].end());
+  }
+}
